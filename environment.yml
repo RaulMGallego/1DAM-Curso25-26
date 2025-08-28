@@ -1,12 +1,14 @@
 name: java-notebook
 channels:
+  - conda-forge
   - defaults
 dependencies:
   - openjdk=17
   - python=3.10
   - pip
+  - nodejs
+  - bash
   - pip:
       - jupyter
       - jupyterlab
       - bash_kernel
-      - jupyterlab_server

@@ -1,10 +1,18 @@
 #!/bin/bash
 
-echo "🔧 Instalando Maven si no está presente..."
-sudo apt-get update
-sudo apt-get install -y maven
+# Activar kernel de Bash
+python -m bash_kernel.install
 
-echo "📦 Compilando proyecto Java con Maven..."
-mvn clean install
+# Instalar Java kernel (IJava)
+mkdir -p /tmp/ijava
+cd /tmp/ijava
+wget https://github.com/SpencerPark/IJava/archive/refs/heads/master.zip
+unzip master.zip
+cd IJava-master
+./gradlew installKernel --kernelInstallDir=$HOME/.local/share/jupyter/kernels
+cd ~
+rm -rf /tmp/ijava
 
-echo "✅ Compilación completada."
+# Verificar instalación
+jupyter kernelspec list
+
