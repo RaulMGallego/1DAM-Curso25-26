@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+# Instalar IJava (kernel para Jupyter)
+git clone https://github.com/SpencerPark/IJava.git
+cd IJava
+./gradlew installKernel
+cd ..

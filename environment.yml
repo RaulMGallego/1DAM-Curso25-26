@@ -1,0 +1,12 @@
+name: java-notebook
+channels:
+  - defaults
+dependencies:
+  - openjdk=17
+  - python=3.10
+  - pip
+  - pip:
+      - jupyter
+      - jupyterlab
+      - bash_kernel
+      - jupyterlab_server
