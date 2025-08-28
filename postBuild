@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+sudo apt-get update
+sudo apt-get install -y openjdk-17-jdk curl unzip
 # Instalar IJava (kernel para Jupyter)
 git clone https://github.com/SpencerPark/IJava.git
 cd IJava
