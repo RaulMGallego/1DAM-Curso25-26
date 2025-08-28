@@ -1,18 +1,12 @@
 #!/bin/bash
 
-# Activar kernel de Bash
-python -m bash_kernel.install
+echo "🔧 Instalando Jupyter y Java kernel (IJava)..."
 
-# Instalar Java kernel (IJava)
-mkdir -p /tmp/ijava
-cd /tmp/ijava
-wget https://github.com/SpencerPark/IJava/archive/refs/heads/master.zip
-unzip master.zip
-cd IJava-master
-./gradlew installKernel --kernelInstallDir=$HOME/.local/share/jupyter/kernels
-cd ~
-rm -rf /tmp/ijava
+# Instala Jupyter y Java kernel
+pip install jupyterlab
+curl -L https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip -o ijava.zip
+unzip ijava.zip -d ijava-installer
+cd ijava-installer
+python install.py --sys-prefix
 
-# Verificar instalación
-jupyter kernelspec list
-
+echo "✅ Kernel de Java instalado correctamente."
