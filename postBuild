@@ -1,10 +1,10 @@
 #!/bin/bash
-set -e
 
+echo "🔧 Instalando Maven si no está presente..."
 sudo apt-get update
-sudo apt-get install -y openjdk-17-jdk curl unzip
-# Instalar IJava (kernel para Jupyter)
-git clone https://github.com/SpencerPark/IJava.git
-cd IJava
-./gradlew installKernel
-cd ..
+sudo apt-get install -y maven
+
+echo "📦 Compilando proyecto Java con Maven..."
+mvn clean install
+
+echo "✅ Compilación completada."
